@@ -1,1 +1,1 @@
-# warthog_thesis
+# Warthog Thesis
