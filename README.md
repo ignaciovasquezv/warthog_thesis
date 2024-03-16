@@ -3,19 +3,26 @@ El presente ...
 
 ## Vehículo terrestre no tripulado Warthog
 
+[Warthog UGV Tutorials](https://www.clearpathrobotics.com/assets/guides/kinetic/warthog/index.html)
 
 ## Calibración y configuración del equipo
 Para lograr una correcta configuración y calibración del equipo en cuestión, se deben seguir una serie de pasos y consideraciones clave. En este contexto, se centrarán en tres aspectos fundamentales: la configuración de la odometría, la configuración manual del URDF (Unified Robot Description Format) y la calibración de la cámara-LiDAR. Estos procesos son esenciales para garantizar el funcionamiento preciso y confiable de un robot en un entorno robótico y son cruciales para tareas de navegación autónoma, percepción del entorno y toma de decisiones. A continuación, se profundizará en cada uno de estos aspectos para comprender cómo llevar a cabo estas configuraciones de manera efectiva.
 
 ### Odometría
 
+[robot_localization](https://docs.ros.org/en/melodic/api/robot_localization/html/index.html)
+
 ### Configuración "manual"
+
+[tf](http://wiki.ros.org/tf)
 
 ### Calibración de cámara
 
+[camera_calibration](http://wiki.ros.org/camera_calibration)
 
 ### Calibración de cámara y sensor LiDAR
 
+[extender_lidar_camera_calib](https://github.com/AFEICHINA/extended_lidar_camera_calib)
 
 
 ## Base de datos y uso de esta
