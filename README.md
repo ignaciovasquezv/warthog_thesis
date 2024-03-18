@@ -75,8 +75,45 @@ roslaunch warthog_tesis ?.launch
 ```
 
 ### Configuración "manual"
+La configuración "manual" del robot se centra principalmente en la edición del archivo URDF (Unified Robot Description Format), un archivo XML utilizado para describir al robot y proporcionarle conocimiento sobre su estructura y características. Esta información es crucial para que el paquete [tf](http://wiki.ros.org/tf) de ROS pueda llevar un seguimiento preciso de los múltiples marcos de coordenadas a lo largo del tiempo. Esto asegura una correspondencia adecuada de la información proveniente de los sensores, lo cual es fundamental para el funcionamiento correcto del sistema.
 
-[tf](http://wiki.ros.org/tf)
+La estructura del archivo URDF, que se muestra a continuación, permite la modificación tanto de la traslación como de la rotación de los sensores y/o estructuras con respecto al punto de origen virtual del robot.
+
+``` xml
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+<!-- Sensor Arch Mesh Link -->
+
+  <link name="sensor_arch">
+    <visual>
+      <geometry>
+        <mesh filename="package://udoh03_warthog/meshes/sensor_arch.STL"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://udoh03_warthog/meshes/sensor_arch.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="sensor_arch_joint" type="fixed">
+    <parent link="bulkhead_link" />
+    <child link="sensor_arch" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+```
+
+#### Imagen descriptiva que muestra la posición y orientación de los sensores.
+
+<p align="center">
+  <img src="images/sensor_arch.png" width="432"/>
+</p>
+
+Cabe destacar que, con el fin de obtener una noción clara de la ubicación de los sensores en relación con el origen virtual, se ha creado una representación digital en Blender. Para acceder a estos archivos, dirigirse al siguiente enlace: [Modelo 3D y archivos Blender](3d_models).
+
 
 ### Calibración de cámara
 
