@@ -1,5 +1,18 @@
 # Implementación y análisis de herramienta de mapeo de entornos frutícolas mediante sensor LiDAR y cámara estéreo montados en plataforma robótica móvil Warthog
-El presente repositorio ...
+Este repositorio alberga una copia de respaldo del trabajo de título elaborado para la obtención del grado de Ingeniero Civil Eléctrico de la Universidad de O'Higgins. Incluye los códigos desarrollados e implementados para este propósito, así como archivos .launch y detalladas instrucciones sobre su utilización. Además, se encuentran disponibles archivos en formato PDF que contienen el trabajo de título, la presentación y manuales importantes.
+
+### Instalación
+Para utilizar este repositorio, es necesario clonarlo dentro de su directorio de trabajo correspondiente. Para ello, ejecute el siguiente comando en la terminal (reemplace 'ros_workspace' con el nombre de su espacio de trabajo):
+
+```
+cd ~/ros_workspace/src
+git clone https://github.com/ignaciovasquezv/warthog_thesis.git
+
+cd ~/ros_workspace/
+catkin_make
+source devel/setup.bash
+```
+
 
 ## Vehículo terrestre no tripulado Warthog
 
