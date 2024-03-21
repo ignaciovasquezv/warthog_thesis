@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node name="storage_monitor" pkg="package_nacho" type="storage_monitor.py" output="screen">
+  </node>
+
+  <node name="rosbag_record" pkg="package_nacho" type="rosbag_record.py" output="screen">
+  </node>
+  
+</launch>

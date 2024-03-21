@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find package_nacho)/config/octomap_visualizer.rviz"/>
+    <arg name="global_frame_id" default="/map"/>
+  
+ 
+  <node name="octomap_map" pkg="package_nacho" type="octomap_visualizer.py" output="screen">
+  </node>
+
+</launch>

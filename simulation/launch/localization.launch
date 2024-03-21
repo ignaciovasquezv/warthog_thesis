@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="robot_localization" type="ekf_localization_node" name="mi_nodo_odometria">
+    <rosparam command="load" file="$(find package_nacho)/config/ekf_config.yaml" />
+    <remap from="/odometry/filtered" to="/new_odom"/>
+  </node>
+</launch>

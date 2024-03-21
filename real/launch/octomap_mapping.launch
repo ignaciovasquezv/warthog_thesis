@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="velo_segmented" pkg="package_nacho" type="filter_pc2.py" output="screen">
+  	</node>
+  	
+	<node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+		<param name="resolution" value="0.05" />
+		
+		<param name="frame_id" type="string" value="odom" />
+		
+		<param name="sensor_model/max_range" value="5.0" />
+
+		<param name="sensor_model/min_range" value="1.0" />
+		
+		<!-- data (ZED / LiDAR) -->
+		<!--remap from="cloud_in" to="/zed2_node/point_cloud/cloud_registered" /-->
+		<remap from="cloud_in" to="/velodyne_points_segmented" />
+	</node>
+</launch>
