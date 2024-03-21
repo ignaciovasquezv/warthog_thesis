@@ -13,16 +13,16 @@ git clone https://github.com/ignaciovasquezv/warthog_thesis.git
 
 - Para clonar este repositorio en el espacio de trabajo de **simulación**:
   ```bash
-  cd ~/ros_workspace/src/warthog_tesis/
-  mv ~/ros_workspace/src/warthog_tesis/simulation/* ~/ros_workspace/src/warthog_tesis/
-  rm -r ~/ros_workspace/src/warthog_tesis/real/
+  cd ~/ros_workspace/src/warthog_thesis/
+  mv ~/ros_workspace/src/warthog_thesis/simulation/* ~/ros_workspace/src/warthog_thesis/
+  rm -r ~/ros_workspace/src/warthog_thesis/real/ ~/ros_workspace/src/warthog_thesis/simulation/
   ```
 
 - Para clonar este repositorio en el espacio de trabajo con el **robot real**:
   ```bash
-  cd ~/ros_workspace/src/warthog_tesis/
-  mv ~/ros_workspace/src/warthog_tesis/real/* ~/ros_workspace/src/warthog_tesis/
-  rm -r ~/ros_workspace/src/warthog_tesis/simulation/
+  cd ~/ros_workspace/src/warthog_thesis/
+  mv ~/ros_workspace/src/warthog_thesis/real/* ~/ros_workspace/src/warthog_thesis/
+  rm -r ~/ros_workspace/src/warthog_thesis/real/ ~/ros_workspace/src/warthog_thesis/simulation/
   ```
 
 Finalmente, debe compilar los paquetes de ROS dentro de su espacio de trabajo:
