@@ -103,7 +103,7 @@ Además, se ha implementado la odometría del robot utilizando datos del GPS con
 Es importante destacar que este algoritmo está diseñado exclusivamente para utilizar la base de datos (no se debe reproducir el topico de odometría obtenido en terreno) y toma como entrada las coordenadas provenientes del tópico *'/piksi/navsatfix_best_fix'*. Para utilizarlo, ejecute el siguiente comando en la ventana de comandos:
 
 ```bash
-roslaunch warthog_tesis localization.launch
+roslaunch package_nacho localization.launch
 ```
 
 ### Configuración "manual"
@@ -234,7 +234,7 @@ El algoritmo OctoMap procesa la nube de puntos generada por el LiDAR VLP-16 o la
 Una vez que haya configurado este algoritmo, puede proceder a ejecutarlo utilizando el siguiente comando:
 
 ```bash
-roslaunch warthog_thesis octomap_mapping.launch
+roslaunch package_nacho octomap_mapping.launch
 ```
 
 Para guardar los mapas generados, ejecute el siguiente comando. Es importante tener en cuenta que el mapa se guardará en la carpeta actual, por lo que asegúrese de estar en el directorio donde desea guardar los mapas (reemplace 'name_map' por el nombre que desee ponerle al mapa).
@@ -248,7 +248,7 @@ roslaunch octomap_server octomap_saver f 'name_map'.bt
 Una vez que los mapas generados mediante el algoritmo de mapeo han sido almacenados, es posible visualizarlos utilizando el archivo .launch creado. Para ejecutar la visualización de mapas utilice el siguiente comando:
 
 ```bash
-roslaunch warthog_thesis octomap_visualizer.launch
+roslaunch package_nacho octomap_visualizer.launch
 ```
 
 Al ejecutarlo, se solicitará en la consola que se ingrese el nombre del mapa previamente guardado, especificando su extensión. Una vez ingresado el nombre, este se cargará automáticamente en la ventana de RVIZ, la cual se abrirá con la configuración de visualización ya preestablecida.
