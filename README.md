@@ -1,13 +1,32 @@
 # Implementación y análisis de herramienta de mapeo de entornos frutícolas mediante sensor LiDAR y cámara estéreo montados en plataforma robótica móvil Warthog
 Este repositorio alberga una copia de respaldo del trabajo de título elaborado para la obtención del grado de Ingeniero Civil Eléctrico de la Universidad de O'Higgins. Incluye los códigos desarrollados e implementados para este propósito, así como archivos .launch y detalladas instrucciones sobre su utilización. Además, se encuentran disponibles archivos en formato PDF que contienen el trabajo de título, la presentación y manuales importantes.
 
+Cabe destacar que este repositorio contiene el paquete de ROS diseñado tanto para simulación como para trabajar con el robot real. Por lo tanto, si desea alguno en particular, debe tener en cuenta las instrucciones presentes en la instalación de este.
+
 ### Instalación
 Para utilizar este repositorio, es necesario clonarlo dentro de su directorio de trabajo correspondiente. Para ello, ejecute el siguiente comando en la terminal (reemplace 'ros_workspace' con el nombre de su espacio de trabajo):
 
 ```bash
-cd ~/ros_workspace/src
+cd ~/ros_workspace/src/
 git clone https://github.com/ignaciovasquezv/warthog_thesis.git
+```
 
+- Para clonar este repositorio en el espacio de trabajo de **simulación**:
+  ```bash
+  cd ~/ros_workspace/src/warthog_tesis/
+  mv ~/ros_workspace/src/warthog_tesis/simulation/* ~/ros_workspace/src/warthog_tesis/
+  rm -r ~/ros_workspace/src/warthog_tesis/real/
+  ```
+
+- Para clonar este repositorio en el espacio de trabajo con el **robot real**:
+  ```bash
+  cd ~/ros_workspace/src/warthog_tesis/
+  mv ~/ros_workspace/src/warthog_tesis/real/* ~/ros_workspace/src/warthog_tesis/
+  rm -r ~/ros_workspace/src/warthog_tesis/simulation/
+  ```
+
+Finalmente, debe compilar los paquetes de ROS dentro de su espacio de trabajo:
+```bash
 cd ~/ros_workspace/
 catkin_make
 source devel/setup.bash
@@ -47,9 +66,9 @@ Para utilizar la base de datos, es necesario ejecutar una serie de comandos en l
    ```bash
    rosparam set use_sim_time true
    ```
-3. Reproducir los datos desde el archivo .bag. Es importante destacar que se debe especificar qué tópico se desea reproducir. En este caso, se reproducen los datos del sensor LiDAR, la cámara estéreo ZED2, el sensor GPS, ... .
+3. Reproducir los datos desde el archivo .bag. Es importante destacar que se debe especificar qué tópico se desea reproducir. En este caso, se reproducen los datos del sensor LiDAR, el sensor GPS y las transformadas entre sensores (reemplace 'name' con el nombre de su archivo .bag).
    ```bash
-   rosbag play ...
+   rosbag play --clock --pause name.bag --topics /velodyne_points /piksi/navsatfix_best_fix /tf_static /...
    ```
 
 ## Calibración y configuración del equipo
@@ -60,7 +79,20 @@ La odometría es una técnica esencial en robótica que estima la posición y de
 
 ```yaml
 ekf_localization:
-  imu0: um7/imu/data
+   imu0: um7/imu/data
+   imu0_config: [false, false, false,
+                 false, false, true,
+                 false, false, false,
+                 false, false, true,
+                 true, false, false]
+   imu0_remove_gravitational_acceleration: true
+
+   odom0: warthog_velocity_controller/odom
+   odom0_config: [false, false, false,
+                  false, false, false,
+                  true, true, false,
+                  false, false, true,
+                  false, false, false]
 ```
 
 Además, se ha implementado la odometría del robot utilizando datos del GPS con un algoritmo de Python que transforma las coordenadas geográficas (latitud y longitud) a metros. Las ecuaciones 1 y 2 muestran las escalas de conversión utilizadas. 
@@ -68,10 +100,10 @@ Además, se ha implementado la odometría del robot utilizando datos del GPS con
 1. $$1° latitud = 111321 [m]$$
 2. $$1° longitud = {40075000 * cos(latitud[°]) \over 360 [m]}$$
 
-Es importante destacar que este algoritmo está diseñado exclusivamente para utilizar la base de datos (no se debe reproducir el topico de odometría obtenido en terreno) y toma como entrada las coordenadas provenientes del tópico 'topic_ros'. Para utilizarlo, ejecute el siguiente comando en la ventana de comandos:
+Es importante destacar que este algoritmo está diseñado exclusivamente para utilizar la base de datos (no se debe reproducir el topico de odometría obtenido en terreno) y toma como entrada las coordenadas provenientes del tópico *'/piksi/navsatfix_best_fix'*. Para utilizarlo, ejecute el siguiente comando en la ventana de comandos:
 
 ```bash
-roslaunch warthog_tesis ?.launch
+roslaunch warthog_tesis localization.launch
 ```
 
 ### Configuración "manual"
@@ -104,6 +136,8 @@ La estructura del archivo URDF, que se muestra a continuación, permite la modif
     <child link="sensor_arch" />
     <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
+
+  ...
 ```
 
 #### Imagen descriptiva que muestra la posición y orientación de los sensores.
@@ -206,7 +240,7 @@ roslaunch warthog_thesis octomap_mapping.launch
 Para guardar los mapas generados, ejecute el siguiente comando. Es importante tener en cuenta que el mapa se guardará en la carpeta actual, por lo que asegúrese de estar en el directorio donde desea guardar los mapas (reemplace 'name_map' por el nombre que desee ponerle al mapa).
 
 ```bash
-cd ~/ros_workspace/src/warthog_thesis/map...
+cd ~/ros_workspace/src/warthog_thesis/maps/
 roslaunch octomap_server octomap_saver f 'name_map'.bt
 ```
 
