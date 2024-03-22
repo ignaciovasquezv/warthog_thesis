@@ -259,3 +259,31 @@ Al ejecutarlo, se solicitará en la consola que se ingrese el nombre del mapa pr
 
 
 ## Extra
+En la siguiente sección...
+
+#### Encendido y operación del robot
+- Luces de encendido...
+- Parada de emergencia...
+- Control...
+- Estación base...
+
+#### Adquisición de datos
+```bash
+roslaunch package_nacho rosbag_record.launch
+```
+
+#### Monitoreo de batería
+```bash
+rosrun package_nacho bms_msg.launch
+```
+
+#### IMU
+
+
+#### ...
+
+
+
+## Trabajo de título y presentación
+Para acceder al documento correspondiente al trabajo de título, dirigirse al siguiente enlace: "[Documento de trabajo de título](thesis/TITLE_WORK_IGNACIO_VASQUEZ.pdf)". Si desea visualizar la presentación del trabajo de título, puede utilizar cualquiera de los siguientes enlaces: "[Presentación de trabajo de títutlo](thesis/PRESENTATION_IGNACIO_VASQUEZ.pdf)" o "[Presentación de trabajo de título - Canva](https://www.canva.com/design/DAFgdYkXXaE/4ogQ4hE2SU43HE2vf9G6EA/edit?utm_content=DAFgdYkXXaE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)". Sin embargo, tener en cuenta que solo el enlace de **Canva** permitirá ver los videos incluidos en la presentación.
+
