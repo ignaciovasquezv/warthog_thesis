@@ -46,14 +46,17 @@ Clearpath Robotics ofrece tutoriales de sus robots en sus páginas web, donde ad
 
 
 ## Base de datos
-La base de datos generada durante el desarrollo del trabajo de titulación se construyó a partir de las salidas a terreno con el robot, donde se recopiló información sobre todos los temas publicados por ROS, es decir, información de todos los sensores. Es importante destacar que estos archivos .bag están disponibles en una unidad física (HDD) en el Laboratorio de Robótica y Sistemas Inteligentes (RISLAB) de la Universidad de O'Higgins. La tabla a continuación muestra una descripción de la base de datos.
+La base de datos generada durante el desarrollo del trabajo de titulación se construyó a partir de las salidas a terreno con el robot, donde se recopiló información sobre todos los temas publicados por ROS, es decir, información de todos los sensores. Es importante destacar que estos archivos .bag están disponibles en una unidad física (HDD) en el Laboratorio de Robótica y Sistemas Inteligentes (RISLAB) de la Universidad de O'Higgins. La tabla a continuación muestra una descripción general de la base de datos.
 
 <div align="center">
 
-| Lugar | Fecha | Descripción | Tamaño |
-| --- | --- | --- | --- |
-| Celda 1      | Celda 2      | Celda 3      | hola |
-| Celda 4      | Celda 5      | Celda 6      | hola |
+| Lugar | Fecha |  Tamaño total |
+| :---: | :---: |  :---: |
+| Fundo la Torre, Rengo-Chile | 13-09-2023 | 131.6 GB |
+| Fundo la Torre, Rengo-Chile | 24-11-2023 | 212 GB |
+| Campo "Agroinvest" (Prize), Rengo-Chile | 24-11-2023 | 18.2 GB |
+| Liceo Liceo Agricola El Carmen, San Fernando-Chile | 18-12-2023 | 233 GB |
+| Campo Los Gomeros (Prize), Graneros-Chile | 19-12-2023 | 276 GB |
 
 </div>
 
