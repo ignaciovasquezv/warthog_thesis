@@ -8,7 +8,7 @@ Para utilizar este repositorio, es necesario clonarlo dentro de su directorio de
 
 ```bash
 cd ~/ros_workspace/src/
-git clone https://github.com/ignaciovasquezv/warthog_thesis.git
+git clone https://github.com/ignaciovsq/warthog_thesis.git
 ```
 
 - Para clonar este repositorio en el espacio de trabajo de **simulación**:
