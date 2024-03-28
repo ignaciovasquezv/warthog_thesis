@@ -262,13 +262,20 @@ Al ejecutarlo, se solicitará en la consola que se ingrese el nombre del mapa pr
 
 
 ## Extra
-En la siguiente sección...
+En esta sección se presentan aspectos adicionales que pueden ser importantes tener en cuenta al trabajar con la plataforma robótica.
 
 #### Encendido y operación del robot
-- Luces de encendido...
-- Parada de emergencia...
-- Control...
-- Estación base...
+Una vez encendido el robot, es importante tener en cuenta los siguientes puntos:
+- Las luces de la plataforma robótica indican el estado en el que se encuentra el robot. A continuación, se presenta la combinación de luces y su significado:
+  - Cuatro luces en rojo: ERROR.
+  - Cuatro luces en rojo intermitente: parada de emergencia activada.
+  - Luces delanteras en blanco, luces traseras en rojo: operación normal.
+- Una vez encendido el robot, se debe desactivar la parada de emergencia para poder operarlo. Para hacerlo, se debe verificar que los cuatro botones de parada de emergencia estén desactivados y conectar el control remoto de parada inalámbrico, manteniendo presionado el botón lateral negro por unos segundos.
+- El control remoto se conecta automáticamente con la plataforma. Para operar, considere los siguientes actuadores:
+  - Palanca derecha (CH1): control de movimiento hacia adelante/atras del robot.
+  - Palanca izquierda (CH2): control de giro del robot hacia la izquierda/derecha.
+  - Perilla DL1 (CH4): ajuste de la escala de velocidad.
+  - Switch SW2 (CH3): mover hacia arriba para habilitar el transmisor, es decir, para que el control envíe instrucciones al robot.
 
 #### Adquisición de datos
 ```bash
@@ -276,8 +283,9 @@ roslaunch package_nacho rosbag_record.launch
 ```
 
 #### Monitoreo de batería
+
 ```bash
-rosrun package_nacho bms_msg.launch
+rosrun package_nacho bms_msg.py
 ```
 
 #### IMU
